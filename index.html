@@ -66,48 +66,48 @@
     }
 
     button.share {
-      background: #3182ce;
+      background: #2b6cb0;
       color: #fff;
     }
 
     button.share:hover {
-      background: #2c5282;
+      background: #2b6cb0;
     }
 
     button.alegria {
-      background: #d69e2e;
+      background: #4c59c8;
       color: #ffffff;
     }
 
     button.alegria:hover {
-      background: #ecc94b;
+      background: #4c59c8;
     }
 
     button.medo {
-      background: #e53e3e;
+      background: #6c6c6c;
       color: #fff;
     }
 
     button.medo:hover {
-      background: #c53030;
+      background: #6c6c6c;
     }
 
     button.amor {
-      background: #d53f8c;
+      background: #353e8c;
       color: #fff;
     }
 
     button.amor:hover {
-      background: #b83280;
+      background: #353e8c;
     }
 
     button.esperanca {
-      background: #38a169;
+      background: #474747;
       color: #fff;
     }
 
     button.esperanca:hover {
-      background: #2f855a;
+      background: #474747;
     }
 
     .illustration-container {
@@ -170,23 +170,23 @@
     }
 
     .dark-mode button.share {
-      background: #63b3ed;
+      background: #2b6cb0;
     }
 
     .dark-mode button.alegria {
-      background: #d69e2e;
+      background: #4c59c8;
     }
 
     .dark-mode button.medo {
-      background: #c53030;
+      background: #6c6c6c;
     }
 
     .dark-mode button.amor {
-      background: #97266d;
+      background: #353e8c;
     }
 
     .dark-mode button.esperanca {
-      background: #2f855a;
+      background: #474747;
     }
 
     .theme-toggle {
@@ -447,7 +447,7 @@ const versesOfTheDay = [
   // Executar a troca de versículo e imagem todos os dias à meia-noite
   setInterval(() => {
     const currentTime = new Date();
-    if (currentTime.getHours() === 00 && currentTime.getMinutes() === 01) {
+    if (currentTime.getHours() === 11 && currentTime.getMinutes() === 48) {
       updateVerseAndImage(); // Atualiza versículo e imagem ao novo dia
     }
   }, 60000); // Verifica a cada minuto
