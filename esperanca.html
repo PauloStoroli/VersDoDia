@@ -184,7 +184,6 @@
       <li class="verse-item" onclick="shareSingleVerse('Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão. – Isaías 40:31')">"Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão. – Isaías 40:31"</li>
       <li class="verse-item" onclick="shareSingleVerse('Porque em esperança fomos salvos. – Romanos 8:24')">"Porque em esperança fomos salvos. – Romanos 8:24"</li>
       <li class="verse-item" onclick="shareSingleVerse('O Senhor é bom para os que esperam por ele, para a alma que o busca. – Lamentações 3:25')">"O Senhor é bom para os que esperam por ele, para a alma que o busca. – Lamentações 3:25"</li>
-      <li class="verse-item" onclick="shareSingleVerse('Esperança, no Senhor, é a nossa âncora. – Hebreus 6:19')">"Esperança, no Senhor, é a nossa âncora. – Hebreus 6:19"</li>
     </ul>
     
     <!-- Botão "Compartilhar" ajustado -->
@@ -218,7 +217,7 @@
     function shareSingleVerse(verse) {
       if (navigator.share) {
         navigator.share({
-          title: 'Versículo de Alegria',
+          title: 'Versículo de Esperança',
           text: verse,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -234,7 +233,7 @@
         .join('\n');
       if (navigator.share) {
         navigator.share({
-          title: 'Versículos de Alegria',
+          title: 'Versículos de Esperança',
           text: verses,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -243,7 +242,7 @@
       }
     }
     function goHome() {
-      window.location.href = 'index.html'; // Altere para a URL desejada
+      window.location.href = 'index.html';
     }
     window.onload = () => {
   const isDarkMode = localStorage.getItem("darkMode") === "true";

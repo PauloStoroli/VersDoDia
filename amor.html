@@ -216,7 +216,7 @@
     function shareSingleVerse(verse) {
       if (navigator.share) {
         navigator.share({
-          title: 'Versículo de Alegria',
+          title: 'Versículo sobre Amor',
           text: verse,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -232,7 +232,7 @@
         .join('\n');
       if (navigator.share) {
         navigator.share({
-          title: 'Versículos de Alegria',
+          title: 'Versículos sobre Amor',
           text: verses,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -241,7 +241,7 @@
       }
     }
     function goHome() {
-      window.location.href = 'index.html'; // Altere para a URL desejada
+      window.location.href = 'index.html';
     }
     window.onload = () => {
   const isDarkMode = localStorage.getItem("darkMode") === "true";
