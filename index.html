@@ -382,18 +382,22 @@ const versesOfTheDay = [
 
   function shareVerse() {
   const verseText = document.getElementById('versesOfTheDay').textContent;
+  
   // Tenta separar o versículo do livro usando " – "
   let [versiculo, livro] = verseText.split(' – ');
+
+  // Caso não ache o separador, assume o texto todo como versículo
   if (!livro) {
-    // Se não encontrar separador, usa tudo como versículo
-    versiculo = verseText;
-    livro = '';
+    livro = ''; // Garante que livro seja uma string vazia
   }
-  // Monta a mensagem: versículo, livro (se houver), link
-  let shareMessage = versiculo;
+
+  // Monta a mensagem: versículo + quebra de linha + livro + quebra de linha + link
+  let shareMessage = versiculo.trim();
+
   if (livro.trim() !== '') {
-    shareMessage += `\n${livro}`;
+    shareMessage += `\n${livro.trim()}`;
   }
+
   shareMessage += `\n\n${window.location.href}`;
 
   const shareData = {
@@ -401,6 +405,7 @@ const versesOfTheDay = [
     text: shareMessage,
     url: window.location.href
   };
+
   if (navigator.share) {
     navigator.share(shareData)
       .then(() => console.log('Versículo compartilhado com sucesso!'))
