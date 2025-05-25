@@ -282,8 +282,8 @@
     <h1>Versículo do Dia</h1>
     <div class="illustration-container">
       <div class="image-overlay"></div>
-      <img src="https://www.w3schools.com/w3images/mountains.jpg" alt="Paisagem tranquila" class="illustration">
-      <p class="verse" id="verse">"Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor. – Jeremias 29:11"</p>
+      <img src="https://www.w3schools.com/w3images/falls2.jpg" alt="Paisagem tranquila" class="illustration">
+      <p class="verse" id="versesOfTheDay"></p>
     </div>
     <p class="description">Clique em um sentimento abaixo para encontrar conforto nas Escrituras.</p>
     <div class="buttons">
@@ -298,65 +298,95 @@
   </div>
 
   <script>
-    const versesByEmotion = {
-      alegria: [
-        "Este é o dia que o Senhor fez; regozijemo-nos e alegremo-nos nele. – Salmos 118:24",
-        "A alegria do Senhor é a nossa força. – Neemias 8:10",
-        "Alegrai-vos sempre no Senhor. – Filipenses 4:4"
-      ],
-      medo: [
-        "Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo. – Salmos 23:4",
-        "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. – Isaías 41:10",
-        "O Senhor é a minha luz e a minha salvação; a quem temerei? – Salmos 27:1",
-        "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia. – Salmos 46:1"
-      ],
-      amor: [
-        "Deus é amor. – 1 João 4:8",
-        "Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13"
-      ],
-      esperança: [
-        "Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão. – Isaías 40:31",
-        "Porque em esperança fomos salvos. – Romanos 8:24",
-        "O Senhor é bom para os que esperam por ele, para a alma que o busca. – Lamentações 3:25",
-        "Esperança, no Senhor, é a nossa âncora. – Hebreus 6:19"
-      ]
-    };
 
-    function showVerses(emotion) {
-      const verseDisplay = document.getElementById('verse');
-      const verses = versesByEmotion[emotion];
-      const randomIndex = Math.floor(Math.random() * verses.length);
-      verseDisplay.textContent = verses[randomIndex];
-    }
+const versesOfTheDay = [
+    "Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor. – Jeremias 29:11",
+    "Este é o dia que o Senhor fez; regozijemo-nos e alegremo-nos nele. – Salmos 118:24",
+    "A alegria do Senhor é a nossa força. – Neemias 8:10",
+    "Bem-aventurados os que choram, porque serão consolados. – Mateus 5:4",
+    "Alegrai-vos sempre no Senhor. – Filipenses 4:4",
+    "Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo. – Salmos 23:4",
+    "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. – Isaías 41:10",
+    "O Senhor é a minha luz e a minha salvação; a quem temerei? – Salmos 27:1",
+    "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia. – Salmos 46:1",
+    "Deus é amor. – 1 João 4:8",
+    "Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13",
+    "Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão. – Isaías 40:31",
+    "Porque em esperança fomos salvos. – Romanos 8:24",
+    "O Senhor é bom para os que esperam por ele, para a alma que o busca. – Lamentações 3:25",
+    "Esperança, no Senhor, é a nossa âncora. – Hebreus 6:19",
+    "Entrega o teu caminho ao Senhor; confia nele, e ele o fará. – Salmos 37:5",
+    "O Senhor lutará por vocês; tão somente acalmem-se. – Êxodo 14:14",
+    "Tudo posso naquele que me fortalece. – Filipenses 4:13",
+    "Lâmpada para os meus pés é a tua palavra e luz para o meu caminho. – Salmos 119:105",
+     "Clama a mim, e responder-te-ei, e anunciar-te-ei coisas grandes e ocultas que não sabes. – Jeremias 33:3",
+    "Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento. – Provérbios 3:5",
+    "Em paz me deito e logo adormeço, pois só tu, Senhor, me fazes viver em segurança. – Salmos 4:8",
+    "Se Deus é por nós, quem será contra nós? – Romanos 8:31",
+    "O choro pode durar uma noite, mas a alegria vem pela manhã. – Salmos 30:5",
+    "Buscai primeiro o Reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas. – Mateus 6:33",
+    "Aquietai-vos e sabei que eu sou Deus. – Salmos 46:10",
+    "O Senhor é o meu pastor; nada me faltará. – Salmos 23:1",
+    "Bem-aventurados os limpos de coração, porque verão a Deus. – Mateus 5:8",
+    "O Senhor firma os passos de um homem, quando a conduta deste o agrada. – Salmos 37:23",
+    "Grandes coisas fez o Senhor por nós, e por isso estamos alegres. – Salmos 126:3",
+    "A fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não veem. – Hebreus 11:1",
+    "O coração alegre aformoseia o rosto, mas pela dor do coração o espírito se abate. – Provérbios 15:13",
+    "Não andeis ansiosos por coisa alguma, mas em tudo, pela oração e súplica, com ações de graças, apresentem seus pedidos a Deus. – Filipenses 4:6",
+    "O Senhor te guardará de todo o mal; guardará a tua alma. – Salmos 121:7",
+    "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria. – Salmos 90:12"
+  ];
 
-    function toggleDarkMode() {
-      const body = document.body;
-  const icon = document.getElementById("theme-icon");
+  const imagesOfTheDay = [
+    "https://www.w3schools.com/w3images/falls2.jpg",
+    "https://www.w3schools.com/w3images/mountains.jpg",
+    "https://www.w3schools.com/w3images/lights.jpg",
+    "https://www.w3schools.com/w3images/forest.jpg"
+  ];
+
   
-  body.classList.toggle("dark-mode");
-  const isDarkMode = body.classList.contains("dark-mode");
-
-  // Salva a preferência no localStorage
-  localStorage.setItem("darkMode", isDarkMode);
-
-  // Ajusta o ícone
-  if (isDarkMode) {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  } else {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-  }
+  function toggleDarkMode() {
+    const body = document.body;
+    const icon = document.getElementById("theme-icon");
+    body.classList.toggle("dark-mode");
+    const isDarkMode = body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+    if (isDarkMode) {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+    } else {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
     }
+  }
 
-    function shareVerse() {
-    const verseText = document.getElementById('verse').textContent;
+  function updateVerseAndImage() {
+    const today = new Date();
+    const dayIndex = today.getDate() % versesOfTheDay.length;
+    const verseDisplay = document.getElementById('versesOfTheDay');
+    const imageDisplay = document.querySelector('.illustration');
+    verseDisplay.textContent = versesOfTheDay[dayIndex];
+    const imageIndex = today.getDate() % imagesOfTheDay.length;
+    imageDisplay.src = imagesOfTheDay[imageIndex];
+  }
+
+  function scheduleNextUpdate() {
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+    const msToMidnight = tomorrow - now;
+    setTimeout(() => {
+      updateVerseAndImage();
+      scheduleNextUpdate();
+    }, msToMidnight);
+  }
+
+  function shareVerse() {
+    const verseText = document.getElementById('versesOfTheDay').textContent;
     const shareData = {
       title: 'Versículo do Dia',
       text: verseText,
       url: window.location.href
     };
-
     if (navigator.share) {
       navigator.share(shareData)
         .then(() => console.log('Versículo compartilhado com sucesso!'))
@@ -366,92 +396,22 @@
     }
   }
 
-
-    function openPage(page) {
-      window.location.href = page; // Abre a página relacionada ao sentimento
-    }
-    
-    window.onload = () => document.body.classList.add('show');
-
-    window.onload = () => {
-  const isDarkMode = localStorage.getItem("darkMode") === "true";
-  if (isDarkMode) {
-    document.body.classList.add("dark-mode");
-    document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
-  }
-};
-
-const versesOfTheDay = [
-    [
-      "Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor. – Jeremias 29:11",
-      "Este é o dia que o Senhor fez; regozijemo-nos e alegremo-nos nele. – Salmos 118:24",
-      "A alegria do Senhor é a nossa força. – Neemias 8:10",
-      "Bem-aventurados os que choram, porque serão consolados. – Mateus 5:4",
-      "Alegrai-vos sempre no Senhor. – Filipenses 4:4",
-      "Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo. – Salmos 23:4",
-      "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. – Isaías 41:10",
-      "O Senhor é a minha luz e a minha salvação; a quem temerei? – Salmos 27:1",
-      "Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia. – Salmos 46:1",
-      "Deus é amor. – 1 João 4:8",
-      "Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13",
-      "Mas os que esperam no Senhor renovarão as suas forças; subirão com asas como águias; correrão, e não se cansarão; caminharão, e não se fatigarão. – Isaías 40:31",
-      "Porque em esperança fomos salvos. – Romanos 8:24",
-      "O Senhor é bom para os que esperam por ele, para a alma que o busca. – Lamentações 3:25",
-      "Esperança, no Senhor, é a nossa âncora. – Hebreus 6:19",
-      "Entrega o teu caminho ao Senhor; confia nele, e ele o fará. – Salmos 37:5",
-      "O Senhor lutará por vocês; tão somente acalmem-se. – Êxodo 14:14",
-      "Tudo posso naquele que me fortalece. – Filipenses 4:13",
-      "Lâmpada para os meus pés é a tua palavra e luz para o meu caminho. – Salmos 119:105",
-     "Clama a mim, e responder-te-ei, e anunciar-te-ei coisas grandes e ocultas que não sabes. – Jeremias 33:3",
-      "Confia no Senhor de todo o teu coração e não te estribes no teu próprio entendimento. – Provérbios 3:5",
-      "Em paz me deito e logo adormeço, pois só tu, Senhor, me fazes viver em segurança. – Salmos 4:8",
-      "Se Deus é por nós, quem será contra nós? – Romanos 8:31",
-      "O choro pode durar uma noite, mas a alegria vem pela manhã. – Salmos 30:5",
-      "Buscai primeiro o Reino de Deus, e a sua justiça, e todas estas coisas vos serão acrescentadas. – Mateus 6:33",
-      "Aquietai-vos e sabei que eu sou Deus. – Salmos 46:10",
-      "O Senhor é o meu pastor; nada me faltará. – Salmos 23:1",
-      "Bem-aventurados os limpos de coração, porque verão a Deus. – Mateus 5:8",
-      "O Senhor firma os passos de um homem, quando a conduta deste o agrada. – Salmos 37:23",
-      "Grandes coisas fez o Senhor por nós, e por isso estamos alegres. – Salmos 126:3",
-      "A fé é o firme fundamento das coisas que se esperam, e a prova das coisas que se não veem. – Hebreus 11:1",
-      "O coração alegre aformoseia o rosto, mas pela dor do coração o espírito se abate. – Provérbios 15:13",
-      "Não andeis ansiosos por coisa alguma, mas em tudo, pela oração e súplica, com ações de graças, apresentem seus pedidos a Deus. – Filipenses 4:6",
-      "O Senhor te guardará de todo o mal; guardará a tua alma. – Salmos 121:7",
-      "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria. – Salmos 90:12"
-    ]
-  ];
-
-  const imagesOfTheDay = [
-    "https://www.w3schools.com/w3images/falls2.jpg", // Imagem 1
-    "https://www.w3schools.com/w3images/mountains.jpg", // Imagem 2
-    "https://www.w3schools.com/w3images/lights.jpg", // Imagem 3
-    "https://www.w3schools.com/w3images/forest.jpg" // Imagem 4
-  ];
-
-  function updateVerseAndImage() {
-    const today = new Date();
-    const dayIndex = today.getDate() % versesOfTheDay.length; // Mudança diária baseada no dia do mês
-    const verseDisplay = document.getElementById('verse');
-    const imageDisplay = document.querySelector('illustration');
-
-    // Atualiza o versículo
-    const verseList = versesOfTheDay[dayIndex];
-    const randomIndex = Math.floor(Math.random() * verseList.length);
-    verseDisplay.textContent = verseList[randomIndex];
-
-    // Atualiza a imagem de fundo
-    const imageIndex = today.getDate() % imagesOfTheDay.length;
-    imageDisplay.src = imagesOfTheDay[imageIndex];
+  function openPage(page) {
+    window.location.href = page;
   }
 
-  // Executar a troca de versículo e imagem todos os dias à meia-noite
-  setInterval(() => {
-    const currentTime = new Date();
-    if (currentTime.getHours() === 11 && currentTime.getMinutes() === 48) {
-      updateVerseAndImage(); // Atualiza versículo e imagem ao novo dia
+  // Inicialização
+  window.onload = () => {
+    // Tema
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+      document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
     }
-  }, 60000); // Verifica a cada minuto
-
+    // Versículo
+    updateVerseAndImage();
+    scheduleNextUpdate();
+  };
   </script>
 </body>
 </html>
