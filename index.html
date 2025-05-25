@@ -389,7 +389,13 @@ const versesOfTheDay = [
     versiculo = verseText;
     livro = '';
   }
-  const shareMessage = `${versiculo}\n${livro}\n\n${window.location.href}`;
+  // Monta a mensagem: versículo, livro (se houver), link
+  let shareMessage = versiculo;
+  if (livro.trim() !== '') {
+    shareMessage += `\n${livro}`;
+  }
+  shareMessage += `\n\n${window.location.href}`;
+
   const shareData = {
     title: 'Versículo do Dia',
     text: shareMessage,
