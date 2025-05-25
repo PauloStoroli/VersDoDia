@@ -380,19 +380,23 @@ const versesOfTheDay = [
     }, msToMidnight);
   }
 
-  function shareVerse() {
+function shareVerse() {
   const verseText = document.getElementById('versesOfTheDay').textContent;
-  
-  // Tenta separar o versículo do livro usando " – "
-  let [versiculo, livro] = verseText.split(' – ');
 
-  // Caso não ache o separador, assume o texto todo como versículo
-  if (!livro) {
-    livro = ''; // Garante que livro seja uma string vazia
+  // Tenta separar usando o traço longo " – "
+  const separator = ' – ';
+  let versiculo = '';
+  let livro = '';
+
+  if (verseText.includes(separator)) {
+    [versiculo, livro] = verseText.split(separator);
+  } else {
+    versiculo = verseText;
+    livro = '';
   }
 
   // Monta a mensagem: versículo + quebra de linha + livro + quebra de linha + link
-  let shareMessage = versiculo.trim();
+  let shareMessage = `${versiculo.trim()}`;
 
   if (livro.trim() !== '') {
     shareMessage += `\n${livro.trim()}`;
@@ -409,10 +413,30 @@ const versesOfTheDay = [
   if (navigator.share) {
     navigator.share(shareData)
       .then(() => console.log('Versículo compartilhado com sucesso!'))
-      .catch((error) => console.log('Erro ao compartilhar:', error));
+      .catch((error) => {
+        console.log('Erro ao compartilhar:', error);
+        fallbackCopy(shareMessage);
+      });
   } else {
-    alert(`Copie e compartilhe:\n\n${shareMessage}`);
+    fallbackCopy(shareMessage);
   }
+}
+
+function fallbackCopy(message) {
+  // Cria um elemento de texto escondido
+  const textArea = document.createElement('textarea');
+  textArea.value = message;
+  document.body.appendChild(textArea);
+  textArea.select();
+  
+  try {
+    document.execCommand('copy');
+    alert('Versículo copiado! Agora é só colar onde quiser:\n\n' + message);
+  } catch (err) {
+    alert('Não foi possível copiar automaticamente. Copie manualmente:\n\n' + message);
+  }
+
+  document.body.removeChild(textArea);
 }
 
   function openPage(page) {
