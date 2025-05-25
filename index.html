@@ -381,20 +381,28 @@ const versesOfTheDay = [
   }
 
   function shareVerse() {
-    const verseText = document.getElementById('versesOfTheDay').textContent;
-    const shareData = {
-      title: 'Versículo do Dia',
-      text: verseText,
-      url: window.location.href
-    };
-    if (navigator.share) {
-      navigator.share(shareData)
-        .then(() => console.log('Versículo compartilhado com sucesso!'))
-        .catch((error) => console.log('Erro ao compartilhar:', error));
-    } else {
-      alert(`Copie e compartilhe: "${verseText}"`);
-    }
+  const verseText = document.getElementById('versesOfTheDay').textContent;
+  // Tenta separar o versículo do livro usando " – "
+  let [versiculo, livro] = verseText.split(' – ');
+  if (!livro) {
+    // Se não encontrar separador, usa tudo como versículo
+    versiculo = verseText;
+    livro = '';
   }
+  const shareMessage = `${versiculo}\n${livro}\n\n${window.location.href}`;
+  const shareData = {
+    title: 'Versículo do Dia',
+    text: shareMessage,
+    url: window.location.href
+  };
+  if (navigator.share) {
+    navigator.share(shareData)
+      .then(() => console.log('Versículo compartilhado com sucesso!'))
+      .catch((error) => console.log('Erro ao compartilhar:', error));
+  } else {
+    alert(`Copie e compartilhe:\n\n${shareMessage}`);
+  }
+}
 
   function openPage(page) {
     window.location.href = page;
