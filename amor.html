@@ -1,8 +1,9 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Versículos sobre amor</title>
+  <title>Versículos sobre Amor</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
@@ -17,7 +18,6 @@
       color: #2d3748;
       transition: background 1s, color 1s, transform 0.3s;
       flex-direction: column;
-
     }
 
     .container {
@@ -42,32 +42,18 @@
       transition: color 1s;
     }
 
-    .verse-list {
-      margin-top: 30px;
-      padding: 0;
-      list-style-type: none;
-      text-align: left;
-    }
-
     .verse-item {
-      font-size: 18px;
+      font-size: 20px;
       margin: 20px 0;
       color: #2d3748;
       font-style: italic;
       line-height: 1.8;
-      cursor: pointer;
       transition: color 0.3s, transform 0.3s;
     }
 
-    .verse-item:hover {
-      color: #3182ce; /* Muda a cor ao passar o mouse */
-      transform: scale(1.05);
-    }
-
-    .theme-toggle {
+    .theme-toggle, .home-button {
       position: absolute;
       top: 20px;
-      right: 20px;
       background: none;
       border: none;
       font-size: 30px;
@@ -76,24 +62,16 @@
       transition: transform 0.3s, color 0.3s;
     }
 
-    .theme-toggle:hover {
+    .theme-toggle:hover, .home-button:hover {
       transform: scale(1.2);
+    }
+
+    .theme-toggle {
+      right: 20px;
     }
 
     .home-button {
-      position: absolute;
-      top: 20px;
-      left: 20px; /* Movido para a esquerda */
-      background: none;
-      border: none;
-      font-size: 30px;
-      cursor: pointer;
-      color: #3182ce;
-      transition: transform 0.3s, color 0.3s;   
-    }
-
-    .home-button:hover {
-      transform: scale(1.2);
+      left: 20px;
     }
 
     .dark-mode {
@@ -107,30 +85,14 @@
     }
 
     .dark-mode .verse-item {
-      font-size: 18px;
-      margin: 20px 0;
       color: #e0ecff;
-      font-style: italic;
-      line-height: 1.8;
-      cursor: pointer;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .dark-mode .verse-item:hover {
-      color: #3182ce; /* Muda a cor ao passar o mouse */
-      transform: scale(1.05);
     }
 
     .dark-mode button {
       color: #edf2f7;
     }
 
-    .dark-mode button.share {
-      background: #63b3ed;
-    }
-
-    /* Estilo para o botão "Compartilhar" */
-    .share-button {
+    .action-button {
       padding: 12px 24px;
       font-size: 16px;
       border: none;
@@ -141,110 +103,75 @@
       transition: background-color 0.3s, transform 0.3s;
       font-weight: bold;
       letter-spacing: 1px;
+      margin: 10px;
     }
 
-    .share-button:hover {
+    .action-button:hover {
       background-color: #2c5282;
       transform: scale(1.05);
     }
 
-      /* Responsividade */
     @media (max-width: 768px) {
-  h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
-  .container {
-    padding: 25px 20px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .buttons button {
-    font-size: 15px;
-    padding: 10px 18px;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .verse {
-    font-size: 18px;
-    padding: 0 10px;
-    text-align: center;
-    width: 90%;
-  }
-
-  .illustration-container {
-    height: 200px;
-  }
-}
+      h1 { font-size: 24px; }
+      .container { padding: 25px 20px; }
+      .verse-item { font-size: 18px; }
+    }
 
     @media (max-width: 480px) {
-      h1 {
-        font-size: 24px;
-      }
-
-      .verse-item {
-        font-size: 14px;
-      }
+      .verse-item { font-size: 14px; }
     }
   </style>
 </head>
 <body>
+
   <button class="theme-toggle" onclick="toggleDarkMode()">
-    <i id="theme-icon" class="fas fa-sun"></i> <!-- Ícone sol -->
+    <i id="theme-icon" class="fas fa-sun"></i>
   </button>
+
   <button class="home-button" onclick="goHome()">
-    <i class="fas fa-home"></i> <!-- Ícone de casa -->
+    <i class="fas fa-home"></i>
   </button>
 
   <div class="container">
-    <h1>Versículos sobre amor</h1>
+    <h1>Versículos sobre Amor</h1>
 
-    <ul class="verse-list" id="verse-list">
-      <li class="verse-item" onclick="shareSingleVerse('Acima de tudo, porém, revistam-se do amor, que é o elo perfeito. – Colossenses 3:14')">"Acima de tudo, porém, revistam-se do amor, que é o elo perfeito. – Colossenses – 3:14"</li>
-       <li class="verse-item" onclick="shareSingleVerse('Deus é amor. – 1 João 4:8')">"Deus é amor. – 1 João 4:8"</li>
-      <li class="verse-item" onclick="shareSingleVerse('Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13')">"Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13"</li>
-    </ul>
+    <div class="verse-item" id="current-verse">
+      <!-- Versículo inicial será inserido pelo JS -->
+    </div>
 
-    <!-- Botão "Compartilhar" ajustado -->
-    <div class="buttons">
-      <button class="share-button" onclick="shareAllVerses()">Compartilhar Todos</button>
+    <div>
+      <button class="action-button" onclick="sortVerse()">Sortear Versículo</button>
+      <button class="action-button" onclick="shareCurrentVerse()">Compartilhar</button>
     </div>
   </div>
 
   <script>
-    function toggleDarkMode() {
-      const body = document.body;
-  const icon = document.getElementById("theme-icon");
-  
-  body.classList.toggle("dark-mode");
-  const isDarkMode = body.classList.contains("dark-mode");
+    const verses = [
+      "Acima de tudo, porém, revistam-se do amor, que é o elo perfeito. – Colossenses 3:14",
+      "Deus é amor. – 1 João 4:8",
+      "Ninguém tem maior amor do que aquele que dá a sua vida pelos seus amigos. – João 15:13",
+      "O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. – 1 Coríntios 13:4",
+      "O meu mandamento é este: amem-se uns aos outros como eu os amei. – João 15:12",
+      "Que o Senhor conduza os seus corações ao amor de Deus e à perseverança de Cristo. – 2 Tessalonicenses 3:5",
+      "Acima de tudo, amem sinceramente uns aos outros, porque o amor perdoa muitíssimos pecados. – 1 Pedro 4:8",
+      "Nós amamos porque Ele nos amou primeiro. – 1 João 4:19",
+      "Que tudo o que vocês fizerem seja feito com amor. – 1 Coríntios 16:14",
+      "Façam tudo com amor. – 1 Coríntios 16:14"
+    ];
 
-  // Salva a preferência no localStorage
-  localStorage.setItem("darkMode", isDarkMode);
+    let currentVerse = '';
 
-  // Ajusta o ícone
-  if (isDarkMode) {
-    icon.classList.remove("fa-sun");
-    icon.classList.add("fa-moon");
-  } else {
-    icon.classList.remove("fa-moon");
-    icon.classList.add("fa-sun");
-  }
+    function sortVerse() {
+      const randomIndex = Math.floor(Math.random() * verses.length);
+      currentVerse = verses[randomIndex];
+      document.getElementById('current-verse').textContent = `"${currentVerse}"`;
     }
 
-    // Função para compartilhar um versículo específico
-    function shareSingleVerse(verse) {
+    function shareCurrentVerse() {
       if (navigator.share) {
         navigator.share({
           title: 'Versículo sobre Amor',
-          text: verse,
+          text: currentVerse,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
       } else {
@@ -252,33 +179,28 @@
       }
     }
 
-    // Função para compartilhar todos os versículos
-    function shareAllVerses() {
-      const verses = Array.from(document.querySelectorAll('.verse-item'))
-        .map(verse => verse.textContent)
-        .join('\n');
-      if (navigator.share) {
-        navigator.share({
-          title: 'Versículos sobre Amor',
-          text: verses,
-          url: window.location.href
-        }).catch(error => console.log('Erro ao compartilhar:', error));
-      } else {
-        alert('Compartilhamento não suportado neste navegador.');
-      }
+    function toggleDarkMode() {
+      const body = document.body;
+      const icon = document.getElementById("theme-icon");
+      body.classList.toggle("dark-mode");
+      const isDarkMode = body.classList.contains("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode);
+      icon.classList.toggle("fa-sun", !isDarkMode);
+      icon.classList.toggle("fa-moon", isDarkMode);
     }
+
     function goHome() {
       window.location.href = 'index.html';
     }
+
     window.onload = () => {
-  const isDarkMode = localStorage.getItem("darkMode") === "true";
-  if (isDarkMode) {
-    document.body.classList.add("dark-mode");
-    document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
-  }
-};
-
-
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
+      }
+      sortVerse();  // Exibir versículo ao carregar a página
+    };
   </script>
 </body>
 </html>
