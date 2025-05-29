@@ -131,42 +131,10 @@
       background: #474747;
     }
 
-button.ansiedade {
-  background: #e09f3e;
-  color: #fff;
-}
-button.ansiedade:hover {
-  background: #cf8c2e;
-}
-
-button.tristeza {
-  background: #4299e1;
-  color: #fff;
-}
-button.tristeza:hover {
-  background: #2b6cb0;
-}
-
-button.cura {
-  background: #38a169;
-  color: #fff;
-}
-button.cura:hover {
-  background: #2f855a;
-}
-
-button.paz {
-  background: #00b4d8;
-  color: #fff;
-}
-button.paz:hover {
-  background: #0096c7;
-}
-
     .illustration-container {
       position: relative;
       width: 100%;
-      height: 300px;
+      height: 380px; /* Aumentado de 300px para 380px */
       overflow: hidden;
       border-radius: 15px;
       transition: background 1s;
@@ -242,85 +210,123 @@ button.paz:hover {
       background: #474747;
     }
 
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 30px;
-      cursor: pointer;
-      color: #3182ce;
-      transition: transform 0.3s, color 0.3s;
-    }
+    /* Impede seleção de texto em toda a tela */
+body, .container, .illustration-container, .description, .verse, h1 {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
 
-    .theme-toggle:hover {
-      transform: scale(1.2);
-    }
+/* Permite clicar normalmente nos botões */
+button {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
 
-    /* Responsividade */
-    @media (max-width: 768px) {
-  h1 {
-    font-size: 24px;
-    margin-bottom: 15px;
+/* Botão de tema sempre fixo no topo direito */
+.theme-toggle-container {
+  width: 100vw;
+  height: 48px; 
+  background: transparent;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 16px; 
+  box-sizing: border-box;
+  backdrop-filter: none;
+  margin-bottom: 6px; 
+}
+
+.theme-toggle {
+  position: static;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #3182ce;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+  z-index: 2100;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding-top: 0;
   }
-
-  .container {
-    padding: 25px 20px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .buttons button {
-    font-size: 15px;
-    padding: 10px 18px;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .verse {
-    font-size: 18px;
-    padding: 0 10px;
-    text-align: center;
-    width: 90%;
-  }
-
-  .illustration-container {
-    height: 200px;
+  .theme-toggle {
+    font-size: 28px;
   }
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 48px; 
+  }
+  .theme-toggle-container {
+    height: 48px; 
+    padding-right: 12px;
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 16px 4vw;
+    margin-top: 12vw;
+    max-width: 98vw;
+  }
+  .illustration-container {
+    height: 200px; 
+  }
   h1 {
     font-size: 22px;
+    margin-bottom: 12px;
   }
-
   .verse {
-    font-size: 16px;
+    font-size: 18px;
+    padding: 0 4px;
+    margin: 18px 0;
   }
-
-  .illustration-container {
-    height: 180px;
-  }
-
-  .theme-toggle {
-    font-size: 26px;
-    top: 15px;
-    right: 15px;
-  }
-
-  .container {
-    margin-top: 10px;
-    padding: 20px 15px;
-  }
-
   .description {
-    font-size: 14px;
-    margin-top: 15px;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+  .sentimentos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .sentimentos-grid button {
+    font-size: 0.95rem;
+    padding: 10px 0;
+    min-width: 80px;
+    max-width: 100%;
+  }
+  .buttons {
+    gap: 10px;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 56px; 
+  }
+  .theme-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    left: auto;
+    z-index: 1000;
+    font-size: 28px;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  .container {
+    margin-top: 0;
   }
 }
 
@@ -336,26 +342,28 @@ button.paz:hover {
   width: 100%;
   min-width: 90px;
   max-width: 180px;
-  font-size: 1rem;
-  padding: 12px 0;
+  font-size: 1.15rem;
+  padding: 14px 0;
 }
 
-@media (max-width: 700px) {
+/* Responsivo para tablets */
+@media (max-width: 900px) {
   .sentimentos-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
 }
 
-@media (max-width: 480px) {
+/* Responsivo para celular */
+@media (max-width: 600px) {
   .sentimentos-grid {
     grid-template-columns: 1fr;
     gap: 10px;
   }
   .sentimentos-grid button {
     max-width: 100%;
-    font-size: 0.95rem;
-    padding: 10px 0;
+    font-size: 1.05rem;
+    padding: 14px 0;
   }
 }
   </style>
@@ -372,9 +380,11 @@ button.paz:hover {
       } catch(e){}
     })();
   </script>
+  <div class="theme-toggle-container">
   <button class="theme-toggle" onclick="toggleDarkMode()">
     <i id="theme-icon" class="fas fa-sun"></i>
   </button>
+</div>
 
   <div class="container">
     <h1>Versículo do Dia</h1>
@@ -440,7 +450,27 @@ const versesOfTheDay = [
     "O coração alegre aformoseia o rosto, mas pela dor do coração o espírito se abate. – Provérbios 15:13",
     "Não andeis ansiosos por coisa alguma, mas em tudo, pela oração e súplica, com ações de graças, apresentem seus pedidos a Deus. – Filipenses 4:6",
     "O Senhor te guardará de todo o mal; guardará a tua alma. – Salmos 121:7",
-    "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria. – Salmos 90:12"
+    "Ensina-nos a contar os nossos dias para que o nosso coração alcance sabedoria. – Salmos 90:12",
+    "O Senhor é a minha força e o meu cântico; ele se tornou a minha salvação. – Êxodo 15:2",
+    "A minha graça te basta, porque o meu poder se aperfeiçoa na fraqueza. – 2 Coríntios 12:9",
+    "O Senhor está perto de todos os que o invocam, de todos os que o invocam com sinceridade. – Salmos 145:18",
+    "O Senhor cumpre os desejos daqueles que o temem; ouve-os gritar por socorro e os salva. – Salmos 145:19",
+    "Os que semeiam com lágrimas colherão com alegria. – Salmos 126:5",
+    "Sede fortes e corajosos. Não temais, nem vos atemorizeis diante deles, pois o Senhor, vosso Deus, é quem vai convosco. – Deuteronômio 31:6",
+    "Deleita-te também no Senhor, e ele te concederá o que deseja o teu coração. – Salmos 37:4",
+    "O Senhor sustenta a todos os que caem e levanta a todos os abatidos. – Salmos 145:14",
+    "Deus é fiel, ele não permitirá que vocês sejam tentados além do que podem suportar. – 1 Coríntios 10:13",
+    "O amor seja sem hipocrisia. Detestem o mal e apeguem-se ao bem. – Romans 12:9",
+    "Em todas estas coisas somos mais que vencedores, por meio daquele que nos amou. – Romanos 8:37",
+    "Cantai ao Senhor um cântico novo; cantai ao Senhor, todas as terras. – Salmos 96:1",
+    "Pois eu sou o Senhor, o seu Deus, que o segura pela mão direita e diz: Não tema; eu o ajudarei. – Isaías 41:13",
+    "O Senhor guarda os simples; eu estava abatido, e ele me salvou. – Salmos 116:6",
+    "O meu Deus suprirá todas as necessidades de vocês, de acordo com as suas gloriosas riquezas em Cristo Jesus. – Filipenses 4:19",
+    "O que confia no Senhor é como o monte Sião, que não se abala, firme para sempre. – Salmos 125:1",
+    "Ele cura os de coração quebrantado e trata das suas feridas. – Salmos 147:3",
+    "O Senhor dá força ao seu povo; o Senhor abençoa com paz ao seu povo. – Salmos 29:11",
+    "Busquem o Senhor enquanto é possível achá-lo; invoquem-no enquanto está perto. – Isaías 55:6",
+    "O Senhor é bom, um refúgio em tempos de angústia. Ele protege os que nele confiam. – Naum 1:7"
   ];
 
   const imagesOfTheDay = [
