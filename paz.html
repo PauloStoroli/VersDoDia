@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Versículos sobre Medo</title>
+  <title>Versículos sobre Paz</title>
 
-  <meta name="description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas. Compartilhe e fortaleça sua fé!">
+    <meta name="description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas. Compartilhe e fortaleça sua fé!">
   <meta name="keywords" content="versículo do dia, bíblia, conforto, esperança, alegria, amor, fé, cristão, mensagem bíblica, devocional, palavra do dia">
   <meta name="author" content="Paulo Storoli">
   <link rel="icon" href="img/VerseOfTheDay.png" type="image/x-icon">
@@ -22,7 +22,6 @@
   <meta name="twitter:title" content="Versículo do Dia">
   <meta name="twitter:description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas.">
   <meta name="twitter:image" content="img/VerseOfTheDay.png">
-
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -153,7 +152,7 @@
   </button>
 
   <div class="container">
-    <h1>Versículos sobre Medo</h1>
+    <h1>Versículos sobre Paz</h1>
 
     <div class="verse-item" id="current-verse">
       <!-- Versículo inicial será inserido pelo JS -->
@@ -167,21 +166,16 @@
 
   <script>
     const verses = [
-     "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. – Isaías 41:10",
-  "Em Deus, cuja palavra eu louvo, neste Deus ponho a minha confiança e nada temerei. – Salmos 56:4",
-  "O Senhor é a minha luz e a minha salvação; de quem terei medo? – Salmos 27:1",
-  "Deixo-lhes a paz; a minha paz lhes dou. Não se perturbem os seus corações, nem tenham medo. – João 14:27",
-  "No amor não há medo; ao contrário, o perfeito amor expulsa o medo. – 1 João 4:18",
-  "Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo. – Salmos 23:4",
-  "O Senhor é por mim; não temerei. O que me podem fazer os homens? – Salmos 118:6",
-  "Quando o temor me assaltar, hei de confiar em ti. – Salmos 56:3",
-  "Não se apavorem, nem tenham medo deles. – Deuteronômio 31:6",
-  "Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio. – 2 Timóteo 1:7",
-  "Não temas, pequeno rebanho, pois foi do agrado do Pai dar-lhes o Reino. – Lucas 12:32",
-  "O anjo do Senhor acampa-se ao redor dos que o temem e os livra. – Salmos 34:7",
-  "Não temas, porque eu sou contigo; do oriente trarei a tua descendência e do ocidente te congregarei. – Isaías 43:5",
-  "O Senhor é bom, um refúgio em tempos de angústia. Ele protege os que nele confiam. – Naum 1:7",
-  "Ainda que um exército se acampe contra mim, meu coração não temerá; ainda que se declare guerra contra mim, mesmo assim estarei confiante. – Salmos 27:3"
+  "Deixo-lhes a paz; a minha paz lhes dou. Não a dou como o mundo a dá. Não se perturbem os seus corações, nem tenham medo. – João 14:27",
+  "Tu guardarás em perfeita paz aquele cujo propósito está firme, porque em ti confia. – Isaías 26:3",
+  "E a paz de Deus, que excede todo o entendimento, guardará os seus corações e as suas mentes em Cristo Jesus. – Filipenses 4:7",
+  "O Senhor dá força ao seu povo; o Senhor abençoa com paz ao seu povo. – Salmos 29:11",
+  "O Deus da paz estará com vocês. – Filipenses 4:9",
+  "O próprio Senhor da paz lhes dê a paz em todo tempo e de todas as formas. – 2 Tessalonicenses 3:16",
+  "Grande paz têm os que amam a tua lei; para eles não há tropeço. – Salmos 119:165",
+  "Busque a paz e esforce-se por alcançá-la. – Salmos 34:14",
+  "Bem-aventurados os pacificadores, pois serão chamados filhos de Deus. – Mateus 5:9",
+  "Que a paz de Cristo seja o juiz em seus corações, visto que vocês foram chamados para viver em paz, como membros de um só corpo. E sejam agradecidos. – Colossenses 3:15"
     ];
 
     let currentVerse = '';
@@ -195,7 +189,7 @@
     function shareCurrentVerse() {
       if (navigator.share) {
         navigator.share({
-          title: 'Versículo sobre Medo',
+          title: 'Versículos sobre Paz',
           text: currentVerse,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -227,7 +221,7 @@
       sortVerse();  // Exibir versículo ao carregar a página
     };
 
-     // Aplica o tema salvo imediatamente ao carregar a página
+ // Aplica o tema salvo imediatamente ao carregar a página
     (function() {
       try {
         const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -237,7 +231,7 @@
       } catch(e){}
     })();
 
-
   </script>
+
 </body>
 </html>

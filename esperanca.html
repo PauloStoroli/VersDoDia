@@ -225,6 +225,17 @@
       }
       sortVerse();  // Exibir versículo ao carregar a página
     };
+
+ // Aplica o tema salvo imediatamente ao carregar a página
+    (function() {
+      try {
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch(e){}
+    })();
+
   </script>
 </body>
 </html>

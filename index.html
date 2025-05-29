@@ -131,6 +131,38 @@
       background: #474747;
     }
 
+button.ansiedade {
+  background: #e09f3e;
+  color: #fff;
+}
+button.ansiedade:hover {
+  background: #cf8c2e;
+}
+
+button.tristeza {
+  background: #4299e1;
+  color: #fff;
+}
+button.tristeza:hover {
+  background: #2b6cb0;
+}
+
+button.cura {
+  background: #38a169;
+  color: #fff;
+}
+button.cura:hover {
+  background: #2f855a;
+}
+
+button.paz {
+  background: #00b4d8;
+  color: #fff;
+}
+button.paz:hover {
+  background: #0096c7;
+}
+
     .illustration-container {
       position: relative;
       width: 100%;
@@ -292,11 +324,56 @@
   }
 }
 
+.sentimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.sentimentos-grid button {
+  width: 100%;
+  min-width: 90px;
+  max-width: 180px;
+  font-size: 1rem;
+  padding: 12px 0;
+}
+
+@media (max-width: 700px) {
+  .sentimentos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sentimentos-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .sentimentos-grid button {
+    max-width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}
   </style>
 </head>
 <body>
+  <script>
+    // Aplica o tema salvo imediatamente ao carregar a página
+    (function() {
+      try {
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          document.body.classList.add("dark-mode");
+        }
+      } catch(e){}
+    })();
+  </script>
   <button class="theme-toggle" onclick="toggleDarkMode()">
-    <i id="theme-icon" class="fas fa-sun"></i> <!-- Ícone sol -->
+    <i id="theme-icon" class="fas fa-sun"></i>
   </button>
 
   <div class="container">
@@ -306,15 +383,23 @@
       <img src="https://www.w3schools.com/w3images/falls2.jpg" alt="Paisagem tranquila" class="illustration">
       <p class="verse" id="versesOfTheDay"></p>
     </div>
-    <p class="description">Clique em um sentimento abaixo para encontrar conforto nas Escrituras.</p>
+
     <div class="buttons">
+      <button class="share" onclick="shareVerse()">Compartilhar</button>
+    </div>
+
+    <p class="description">Clique em um sentimento abaixo para encontrar conforto nas Escrituras.</p>
+    
+    
+    <div class="sentimentos-grid">
       <button class="alegria" onclick="openPage('alegria.html')">Alegria</button>
       <button class="medo" onclick="openPage('medo.html')">Medo</button>
       <button class="amor" onclick="openPage('amor.html')">Amor</button>
       <button class="esperanca" onclick="openPage('esperanca.html')">Esperança</button>
-    </div>
-    <div class="buttons">
-      <button class="share" onclick="shareVerse()">Compartilhar</button>
+      <button class="alegria" onclick="openPage('ansiedade.html')">Ansiedade</button>
+      <button class="medo" onclick="openPage('tristeza.html')">Tristeza</button>
+      <button class="amor" onclick="openPage('cura.html')">Cura</button>
+      <button class="esperanca" onclick="openPage('paz.html')">Paz</button>
     </div>
   </div>
 

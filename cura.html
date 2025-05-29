@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Versículos sobre Medo</title>
-
+  <title>Versículos sobre Cura</title>
   <meta name="description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas. Compartilhe e fortaleça sua fé!">
   <meta name="keywords" content="versículo do dia, bíblia, conforto, esperança, alegria, amor, fé, cristão, mensagem bíblica, devocional, palavra do dia">
   <meta name="author" content="Paulo Storoli">
@@ -22,7 +21,6 @@
   <meta name="twitter:title" content="Versículo do Dia">
   <meta name="twitter:description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas.">
   <meta name="twitter:image" content="img/VerseOfTheDay.png">
-
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
@@ -153,7 +151,7 @@
   </button>
 
   <div class="container">
-    <h1>Versículos sobre Medo</h1>
+    <h1>Versículos sobre Cura</h1>
 
     <div class="verse-item" id="current-verse">
       <!-- Versículo inicial será inserido pelo JS -->
@@ -167,21 +165,21 @@
 
   <script>
     const verses = [
-     "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus. – Isaías 41:10",
-  "Em Deus, cuja palavra eu louvo, neste Deus ponho a minha confiança e nada temerei. – Salmos 56:4",
-  "O Senhor é a minha luz e a minha salvação; de quem terei medo? – Salmos 27:1",
-  "Deixo-lhes a paz; a minha paz lhes dou. Não se perturbem os seus corações, nem tenham medo. – João 14:27",
-  "No amor não há medo; ao contrário, o perfeito amor expulsa o medo. – 1 João 4:18",
-  "Mesmo quando eu andar por um vale de trevas e morte, não temerei perigo algum, pois tu estás comigo. – Salmos 23:4",
-  "O Senhor é por mim; não temerei. O que me podem fazer os homens? – Salmos 118:6",
-  "Quando o temor me assaltar, hei de confiar em ti. – Salmos 56:3",
-  "Não se apavorem, nem tenham medo deles. – Deuteronômio 31:6",
-  "Deus não nos deu espírito de covardia, mas de poder, de amor e de equilíbrio. – 2 Timóteo 1:7",
-  "Não temas, pequeno rebanho, pois foi do agrado do Pai dar-lhes o Reino. – Lucas 12:32",
-  "O anjo do Senhor acampa-se ao redor dos que o temem e os livra. – Salmos 34:7",
-  "Não temas, porque eu sou contigo; do oriente trarei a tua descendência e do ocidente te congregarei. – Isaías 43:5",
-  "O Senhor é bom, um refúgio em tempos de angústia. Ele protege os que nele confiam. – Naum 1:7",
-  "Ainda que um exército se acampe contra mim, meu coração não temerá; ainda que se declare guerra contra mim, mesmo assim estarei confiante. – Salmos 27:3"
+"Certamente ele tomou sobre si as nossas enfermidades e sobre si levou as nossas doenças. – Isaías 53:4",
+  "Pelas suas feridas fomos curados. – Isaías 53:5",
+  "Eu sou o Senhor que te cura. – Êxodo 15:26",
+  "O Senhor o sustentará no leito da enfermidade; tu o restaurarás da sua cama de doença. – Salmos 41:3",
+  "Ele cura os que têm o coração quebrantado e trata das suas feridas. – Salmos 147:3",
+  "E, saindo eles, pregavam ao povo que se arrependesse. Expulsavam muitos demônios e ungiam muitos doentes com óleo e os curavam. – Marcos 6:12-13",
+  "E, impondo as mãos sobre cada um deles, os curava. – Lucas 4:40",
+  "Está alguém entre vós doente? Chame os presbíteros da igreja, e orem sobre ele, ungindo-o com óleo em nome do Senhor. E a oração da fé salvará o doente, e o Senhor o levantará. – Tiago 5:14-15",
+  "Senhor, meu Deus, clamei a ti por socorro, e tu me curaste. – Salmos 30:2",
+  "Ele enviou a sua palavra e os curou, e os livrou da morte. – Salmos 107:20",
+  "Jesus percorria toda a Galileia, ensinando nas sinagogas, pregando as boas novas do Reino e curando todas as enfermidades e doenças entre o povo. – Mateus 4:23",
+  "E Jesus disse: Vai, a tua fé te curou. – Marcos 10:52",
+  "O Senhor fortalecerá o seu povo; abençoará com paz ao seu povo. – Salmos 29:11",
+  "Adorai o Senhor, vosso Deus, e ele abençoará o vosso pão e a vossa água. E tirarei do meio de ti as enfermidades. – Êxodo 23:25",
+  "Não temas, porque eu sou contigo; não te assombres, porque eu sou o teu Deus; eu te fortaleço, e te ajudo, e te sustento com a destra da minha justiça. – Isaías 41:10"
     ];
 
     let currentVerse = '';
@@ -195,7 +193,7 @@
     function shareCurrentVerse() {
       if (navigator.share) {
         navigator.share({
-          title: 'Versículo sobre Medo',
+          title: 'Versículos sobre Cura',
           text: currentVerse,
           url: window.location.href
         }).catch(error => console.log('Erro ao compartilhar:', error));
@@ -227,7 +225,7 @@
       sortVerse();  // Exibir versículo ao carregar a página
     };
 
-     // Aplica o tema salvo imediatamente ao carregar a página
+ // Aplica o tema salvo imediatamente ao carregar a página
     (function() {
       try {
         const isDarkMode = localStorage.getItem("darkMode") === "true";
@@ -236,7 +234,6 @@
         }
       } catch(e){}
     })();
-
 
   </script>
 </body>
