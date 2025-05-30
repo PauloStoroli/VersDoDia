@@ -1,0 +1,24 @@
+name: Enviar Notificação Diária
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # 12:00 UTC = 9:00 da manhã no Brasil (UTC-3)
+  workflow_dispatch:  # Permite rodar manualmente também
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar script de notificação
+        run: npm start

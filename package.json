@@ -1,0 +1,12 @@
+{
+  "name": "versiculo-notificacao",
+  "version": "1.0.0",
+  "description": "Envio automático de notificação diária via OneSignal",
+  "main": "sendNotification.js",
+  "scripts": {
+    "start": "node sendNotification.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
