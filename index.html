@@ -2,6 +2,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "2f5874be-5397-4b9a-8597-b77eb31f38c6",
+    });
+  });
+</script>
+
+
   <title>Versículo do Dia</title>
   <meta name="description" content="Receba diariamente um versículo bíblico inspirador. Encontre conforto, esperança, alegria e amor nas Escrituras Sagradas. Compartilhe e fortaleça sua fé!">
   <meta name="keywords" content="versículo do dia, bíblia, conforto, esperança, alegria, amor, fé, cristão, mensagem bíblica, devocional, palavra do dia">
