@@ -1,12 +1,16 @@
 {
-  "name": "versiculo-notificacao",
-  "version": "1.0.0",
-  "description": "Envio automático de notificação diária via OneSignal",
-  "main": "sendNotification.js",
-  "scripts": {
-    "start": "node sendNotification.js"
-  },
   "dependencies": {
-    "node-fetch": "^2.6.7"
-  }
+    "express": "^5.1.0"
+  },
+  "name": "vers-do-dia",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
